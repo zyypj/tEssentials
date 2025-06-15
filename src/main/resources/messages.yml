@@ -1,0 +1,5 @@
+messages:
+  gamemode:
+    self: "&aYour gamemode has been set to &e{MODE}&a."
+    other: "&aSet &e{PLAYER} &ato gamemode &e{MODE}&a."
+    error: "&cInvalid usage. Use /gamemode <type> [player]"
