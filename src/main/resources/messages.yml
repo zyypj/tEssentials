@@ -11,3 +11,6 @@ messages:
     self-disabled: "&aGod mode disabled."
     other-enabled: "&aEnabled god mode for &e{PLAYER}&a."
     other-disabled: "&aDisabled god mode for &e{PLAYER}&a."
+  openinv:
+    error-usage: "&cInvalid usage. Use /openinv <player>"
+    error-console: "&cOnly players can open inventories."
