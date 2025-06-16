@@ -14,3 +14,6 @@ messages:
   openinv:
     error-usage: "&cInvalid usage. Use /openinv <player>"
     error-console: "&cOnly players can open inventories."
+  enderchest:
+    error-usage: "&cInvalid usage. Use /enderchest [player]"
+    error-console: "&cOnly players can open ender chests."
