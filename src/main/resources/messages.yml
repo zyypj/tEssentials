@@ -5,3 +5,9 @@ messages:
     other: "&aSet &e{PLAYER} &ato gamemode &e{MODE}&a."
     error-usage: "&cInvalid usage. Use /gamemode <type> [player]"
     error-unknown-gamemode: "&cUnknowm gamemode: {MODE}"
+  god:
+    error-usage: "&cInvalid usage. Use /god [player]"
+    self-enabled: "&aGod mode enabled."
+    self-disabled: "&aGod mode disabled."
+    other-enabled: "&aEnabled god mode for &e{PLAYER}&a."
+    other-disabled: "&aDisabled god mode for &e{PLAYER}&a."

@@ -2,3 +2,4 @@ debug: false
 
 permissions:
   gamemode: essentials.gamemode
+  god: essentials.god

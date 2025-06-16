@@ -4,8 +4,11 @@ import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import me.zypj.essentials.api.command.service.CommandFramework;
 import me.zypj.essentials.command.GamemodeCommand;
+import me.zypj.essentials.command.GodCommand;
+import me.zypj.essentials.listener.GodListener;
 import me.zypj.essentials.loader.EssentialsBootstrap;
 import org.bukkit.ChatColor;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
@@ -22,7 +25,8 @@ public final class EssentialsPlugin extends JavaPlugin {
         bootstrap = new EssentialsBootstrap(this);
         bootstrap.init();
 
-        registerCommands();
+        loadCommands();
+        loadListeners();
 
         log("&2EssentialsPlugin started in " + stopwatch.stop() + "!", false);
         log("", false);
@@ -44,10 +48,23 @@ public final class EssentialsPlugin extends JavaPlugin {
                 .sendMessage(prefix + formatted);
     }
 
-    private void registerCommands() {
+    private void loadCommands() {
         CommandFramework commandFramework = new CommandFramework(this);
         commandFramework.registerHandlers(
-                new GamemodeCommand(this)
+                new GamemodeCommand(this),
+                new GodCommand(this)
         );
+    }
+
+    private void loadListeners() {
+        registerListeners(
+                new GodListener(this),
+        );
+    }
+
+    private void registerListeners(Listener... listeners) {
+        for (Listener listener : listeners) {
+            getServer().getPluginManager().registerEvents(listener, this);
+        }
     }
 }
