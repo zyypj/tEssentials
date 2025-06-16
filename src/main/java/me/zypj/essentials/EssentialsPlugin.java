@@ -3,6 +3,7 @@ package me.zypj.essentials;
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import me.zypj.essentials.api.command.service.CommandFramework;
+import me.zypj.essentials.command.GamemodeCommand;
 import me.zypj.essentials.loader.EssentialsBootstrap;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,7 +43,11 @@ public final class EssentialsPlugin extends JavaPlugin {
                 .getConsoleSender()
                 .sendMessage(prefix + formatted);
     }
+
     private void registerCommands() {
         CommandFramework commandFramework = new CommandFramework(this);
+        commandFramework.registerHandlers(
+                new GamemodeCommand(this)
+        );
     }
 }
