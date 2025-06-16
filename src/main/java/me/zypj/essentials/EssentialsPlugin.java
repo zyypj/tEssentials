@@ -58,7 +58,7 @@ public final class EssentialsPlugin extends JavaPlugin {
 
     private void loadListeners() {
         registerListeners(
-                new GodListener(this),
+                new GodListener(this)
         );
     }
 
