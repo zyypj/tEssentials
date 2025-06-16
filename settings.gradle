@@ -1,1 +1,3 @@
 rootProject.name = 'Essentials'
+
+include 'essentials-api'

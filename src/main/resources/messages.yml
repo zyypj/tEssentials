@@ -1,5 +1,7 @@
 messages:
+  player-not-found: "&cPlayer not found."
   gamemode:
     self: "&aYour gamemode has been set to &e{MODE}&a."
     other: "&aSet &e{PLAYER} &ato gamemode &e{MODE}&a."
-    error: "&cInvalid usage. Use /gamemode <type> [player]"
+    error-usage: "&cInvalid usage. Use /gamemode <type> [player]"
+    error-unknown-gamemode: "&cUnknowm gamemode: {MODE}"
