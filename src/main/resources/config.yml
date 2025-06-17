@@ -1,5 +1,8 @@
 debug: false
 
+tpa:
+  timeout-seconds: 30
+
 permissions:
   gamemode: essentials.gamemode
   god: essentials.god

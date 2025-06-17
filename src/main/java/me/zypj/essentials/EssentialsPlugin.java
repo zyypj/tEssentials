@@ -54,7 +54,8 @@ public final class EssentialsPlugin extends JavaPlugin {
                 new GodCommand(this),
                 new OpenInvCommand(this),
                 new EnderChestCommand(this),
-                new FixCommand(this)
+                new FixCommand(this),
+                new TpaCommand(this)
         );
     }
 

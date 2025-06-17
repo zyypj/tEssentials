@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import me.zypj.essentials.EssentialsPlugin;
 import me.zypj.essentials.adapter.MessagesAdapter;
 import me.zypj.essentials.service.GodService;
+import me.zypj.essentials.service.TpaService;
 
 @Getter
 @RequiredArgsConstructor
@@ -15,6 +16,7 @@ public class EssentialsBootstrap {
     private MessagesAdapter messagesAdapter;
 
     private GodService godService;
+    private TpaService tpaService;
 
     public void init() {
         setupFiles();
@@ -28,5 +30,6 @@ public class EssentialsBootstrap {
 
     private void setupServices() {
         godService = new GodService();
+        tpaService = new TpaService(plugin);
     }
 }
