@@ -55,7 +55,8 @@ public final class EssentialsPlugin extends JavaPlugin {
                 new OpenInvCommand(this),
                 new EnderChestCommand(this),
                 new FixCommand(this),
-                new TpaCommand(this)
+                new TpaCommand(this),
+                new TrashCommand()
         );
     }
 
