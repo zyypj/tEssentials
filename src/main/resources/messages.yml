@@ -22,23 +22,16 @@ messages:
     success: "&aYour item has been repaired to full durability."
 
   tpa:
-    error-usage: "&cInvalid usage. Use /tpa <player> or /tpa accept|deny <player>"
+    error-usage: "&cInvalid usage. Use /tpa <player>"
     already-pending: "&cYou already have a pending request."
     request-sent: "&aTeleport request sent to &e{TARGET}&a."
-    request-received: "&e{PLAYER} &arequests to teleport to you. {BUTTONS}"
-    error-usage-response: "&cInvalid usage. Use /tpa accept <player> or /tpa deny <player>"
-    error-console-response: "&cOnly players can accept/deny TPA."
-    accept-not-found: "&cNo pending request from &e{PLAYER}&c."
-    accepted:
-      sender: "&aYour teleport request to &e{TARGET}&a was accepted."
-      target: "&aAccepted teleport request from &e{PLAYER}&a."
-    denied:
-      sender: "&aYour teleport request to &e{TARGET}&a was denied."
-      target: "&aDenied teleport request from &e{PLAYER}&a."
+    request-received: "&e{PLAYER} &arequests to teleport to you {BUTTONS}"
     button-order:
       - accept
       - deny
+    button-separator: " "
     buttons:
       accept: "&a[ACCEPT]"
       deny: "&c[DENY]"
-    button-separator: " "
+    error-usage-response: "&cInvalid usage. Use /tpaccept <player> or /tpadeny <player>"
+    accept-not-found: "&cNo pending request from &e{PLAYER}&c."
