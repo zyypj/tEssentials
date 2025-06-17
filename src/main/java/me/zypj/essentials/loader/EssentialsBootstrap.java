@@ -25,6 +25,7 @@ public class EssentialsBootstrap {
     }
 
     private void setupFiles() {
+        plugin.saveDefaultConfig();
         messagesAdapter = new MessagesAdapter(plugin);
     }
 

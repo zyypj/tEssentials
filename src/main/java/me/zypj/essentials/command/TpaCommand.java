@@ -25,6 +25,8 @@ public class TpaCommand {
     )
     public void onTpa(CommandSender sender, String[] args) {
         var msgs = plugin.getBootstrap().getMessagesAdapter();
+        var service = plugin.getBootstrap().getTpaService();
+
         if (args.length < 1) {
             sender.sendMessage(msgs.getMessage("tpa.error-usage"));
             return;
@@ -36,7 +38,7 @@ public class TpaCommand {
             req.sendMessage(msgs.getMessage("player-not-found"));
             return;
         }
-        if (!plugin.getBootstrap().getTpaService().send(req, target)) {
+        if (!service.send(req, target)) {
             req.sendMessage(msgs.getMessage("tpa.already-pending"));
             return;
         }
@@ -54,31 +56,29 @@ public class TpaCommand {
 
         var order = msgs.getMessages("tpa.button-order");
         var sep = msgs.getMessage("tpa.button-separator");
-        var components = new ArrayList<TextComponent>();
+        var comps = new ArrayList<TextComponent>();
 
-        components.add(new TextComponent(before));
+        comps.add(new TextComponent(before));
 
         var first = true;
         for (var key : order) {
-            if (!first) components.add(new TextComponent(sep));
+            if (!first) comps.add(new TextComponent(sep));
             first = false;
 
             var label = msgs.getMessage("tpa.buttons." + key);
             var btn = new TextComponent(label);
-            var cmd = key.equals("accept") ? "/tpaccept " + req.getName()
+            var cmd = key.equals("accept")
+                    ? "/tpaccept " + req.getName()
                     : "/tpadeny " + req.getName();
-            btn.setClickEvent(new ClickEvent(
-                    ClickEvent.Action.RUN_COMMAND,
-                    cmd
-            ));
-            components.add(btn);
+            btn.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, cmd));
+            comps.add(btn);
         }
 
         if (!after.isEmpty()) {
-            components.add(new TextComponent(after));
+            comps.add(new TextComponent(after));
         }
 
-        target.spigot().sendMessage(components.toArray(new TextComponent[0]));
+        target.spigot().sendMessage(comps.toArray(new TextComponent[0]));
     }
 
     @Command(
@@ -87,17 +87,30 @@ public class TpaCommand {
     )
     public void onTpAccept(CommandSender sender, String[] args) {
         var msgs = plugin.getBootstrap().getMessagesAdapter();
-        if (!(sender instanceof Player target)) return;
+        var service = plugin.getBootstrap().getTpaService();
+        var target = (Player) sender;
 
         if (args.length < 1) {
             target.sendMessage(msgs.getMessage("tpa.error-usage-response"));
             return;
         }
-        var requester = args[0];
-        if (!plugin.getBootstrap().getTpaService().accept(target, requester)) {
+        var reqName = args[0];
+        if (service.accept(target, reqName)) {
+            target.sendMessage(
+                    msgs.getMessage("tpa.accepted.target")
+                            .replace("{PLAYER}", reqName)
+            );
+            var req = Bukkit.getPlayerExact(reqName);
+            if (req != null) {
+                req.sendMessage(
+                        msgs.getMessage("tpa.accepted.sender")
+                                .replace("{TARGET}", target.getName())
+                );
+            }
+        } else {
             target.sendMessage(
                     msgs.getMessage("tpa.accept-not-found")
-                            .replace("{PLAYER}", requester)
+                            .replace("{PLAYER}", reqName)
             );
         }
     }
@@ -108,17 +121,30 @@ public class TpaCommand {
     )
     public void onTpDeny(CommandSender sender, String[] args) {
         var msgs = plugin.getBootstrap().getMessagesAdapter();
-        if (!(sender instanceof Player target)) return;
+        var service = plugin.getBootstrap().getTpaService();
+        var target = (Player) sender;
 
         if (args.length < 1) {
             target.sendMessage(msgs.getMessage("tpa.error-usage-response"));
             return;
         }
-        var requester = args[0];
-        if (!plugin.getBootstrap().getTpaService().deny(target, requester)) {
+        var reqName = args[0];
+        if (service.deny(target, reqName)) {
+            target.sendMessage(
+                    msgs.getMessage("tpa.denied.target")
+                            .replace("{PLAYER}", reqName)
+            );
+            var req = Bukkit.getPlayerExact(reqName);
+            if (req != null) {
+                req.sendMessage(
+                        msgs.getMessage("tpa.denied.sender")
+                                .replace("{TARGET}", target.getName())
+                );
+            }
+        } else {
             target.sendMessage(
                     msgs.getMessage("tpa.accept-not-found")
-                            .replace("{PLAYER}", requester)
+                            .replace("{PLAYER}", reqName)
             );
         }
     }

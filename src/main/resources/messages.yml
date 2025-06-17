@@ -8,7 +8,7 @@ messages:
   god:
     error-usage: "&cInvalid usage. Use /god [player]"
     self-enabled: "&aGod mode enabled."
-    self-disabled: "&aGod mode disabled."
+    self-disabled: "&cGod mode disabled."
     other-enabled: "&aEnabled god mode for &e{PLAYER}&a."
     other-disabled: "&aDisabled god mode for &e{PLAYER}&a."
   openinv:
@@ -31,7 +31,15 @@ messages:
       - deny
     button-separator: " "
     buttons:
-      accept: "&a[ACCEPT]"
-      deny: "&c[DENY]"
+      accept: "&a[Accept]"
+      deny: "&c[Deny]"
+
     error-usage-response: "&cInvalid usage. Use /tpaccept <player> or /tpadeny <player>"
     accept-not-found: "&cNo pending request from &e{PLAYER}&c."
+
+    accepted:
+      sender: "&aYour teleport request to &e{TARGET}&a was accepted."
+      target: "&aYou accepted the teleport request from &e{PLAYER}&a."
+    denied:
+      sender: "&aYour teleport request to &e{TARGET}&a was denied."
+      target: "&aYou denied the teleport request from &e{PLAYER}&a."

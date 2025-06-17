@@ -68,15 +68,6 @@ public class TpaService {
         if (task != null) task.cancel();
 
         requester.teleport(target.getLocation());
-        var messagesAdapter = plugin.getBootstrap().getMessagesAdapter();
-        requester.sendMessage(
-                messagesAdapter.getMessage("tpa.accepted.sender")
-                        .replace("{TARGET}", target.getName())
-        );
-        target.sendMessage(
-                messagesAdapter.getMessage("tpa.accepted.target")
-                        .replace("{PLAYER}", requester.getName())
-        );
         return true;
     }
 
@@ -91,16 +82,6 @@ public class TpaService {
         requests.remove(tId);
         var task = tasks.remove(tId);
         if (task != null) task.cancel();
-
-        var messagesAdapter = plugin.getBootstrap().getMessagesAdapter();
-        requester.sendMessage(
-                messagesAdapter.getMessage("tpa.denied.sender")
-                        .replace("{TARGET}", target.getName())
-        );
-        target.sendMessage(
-                messagesAdapter.getMessage("tpa.denied.target")
-                        .replace("{PLAYER}", requester.getName())
-        );
         return true;
     }
 }

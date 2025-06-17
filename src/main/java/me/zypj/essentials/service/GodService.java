@@ -12,7 +12,12 @@ public class GodService {
 
     public boolean changeMode(Player player) {
         var id = player.getUniqueId();
-        return gods.contains(id) ? gods.remove(id) : gods.add(id);
+        if (gods.remove(id)) {
+            return false;
+        }
+
+        gods.add(id);
+        return true;
     }
 
     public boolean isGod(Player player) {
