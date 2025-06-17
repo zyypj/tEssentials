@@ -1,4 +1,4 @@
-package me.zypj.essentials.api.command.annotation;
+package me.zypj.essentials.common.command.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

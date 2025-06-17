@@ -17,3 +17,6 @@ messages:
   enderchest:
     error-usage: "&cInvalid usage. Use /enderchest [player]"
     error-console: "&cOnly players can open ender chests."
+  fix:
+    error-no-item: "&cYou must be holding an item to repair it."
+    success: "&aYour item has been repaired to full durability."

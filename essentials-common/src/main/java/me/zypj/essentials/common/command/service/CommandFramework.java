@@ -1,11 +1,11 @@
-package me.zypj.essentials.api.command.service;
+package me.zypj.essentials.common.command.service;
 
-import me.zypj.essentials.api.command.annotation.Command;
-import me.zypj.essentials.api.command.annotation.SubCommand;
-import me.zypj.essentials.api.command.annotation.TabComplete;
-import me.zypj.essentials.api.command.enums.SenderType;
-import me.zypj.essentials.api.command.models.CommandMeta;
-import me.zypj.essentials.api.command.models.SubCommandMeta;
+import me.zypj.essentials.common.command.annotation.Command;
+import me.zypj.essentials.common.command.annotation.SubCommand;
+import me.zypj.essentials.common.command.annotation.TabComplete;
+import me.zypj.essentials.common.command.enums.SenderType;
+import me.zypj.essentials.common.command.models.CommandMeta;
+import me.zypj.essentials.common.command.models.SubCommandMeta;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;

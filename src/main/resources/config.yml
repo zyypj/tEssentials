@@ -5,3 +5,4 @@ permissions:
   god: essentials.god
   open-inv: essentials.open-inv
   enderchest: essentials.enderchest
+  fix: essentials.fix

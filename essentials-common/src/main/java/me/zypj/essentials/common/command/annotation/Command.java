@@ -1,6 +1,6 @@
-package me.zypj.essentials.api.command.annotation;
+package me.zypj.essentials.common.command.annotation;
 
-import me.zypj.essentials.api.command.enums.SenderType;
+import me.zypj.essentials.common.command.enums.SenderType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,9 +9,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SubCommand {
-    String parent();
-
+public @interface Command {
     String name();
 
     String permission() default "";

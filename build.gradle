@@ -14,11 +14,11 @@ repositories {
 
 dependencies {
     compileOnly (
-            'org.spigotmc:spigot-api:1.21.5-R0.1-SNAPSHOT',
+            'org.spigotmc:spigot-common:1.21.5-R0.1-SNAPSHOT',
             'org.projectlombok:lombok:1.18.38'
     )
+    implementation project(':essentials-common')
 
-    implementation project(':essentials-api')
 
     annotationProcessor('org.projectlombok:lombok:1.18.38')
 }
@@ -53,7 +53,7 @@ processResources {
 shadowJar {
     archiveFileName.set("Essentials-${project.version}.jar")
 
-    relocate 'me.zypj.essentials.api', 'me.zypj.essentials.api'
+    relocate 'me.zypj.essentials.common', 'me.zypj.essentials.common'
     relocate 'me.zypj.essentials', 'me.zypj.essentials'
 
     subprojects.each { sp ->

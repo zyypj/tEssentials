@@ -2,10 +2,8 @@ package me.zypj.essentials;
 
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
-import me.zypj.essentials.api.command.service.CommandFramework;
-import me.zypj.essentials.command.GamemodeCommand;
-import me.zypj.essentials.command.GodCommand;
-import me.zypj.essentials.command.OpenInvCommand;
+import me.zypj.essentials.common.command.service.CommandFramework;
+import me.zypj.essentials.command.*;
 import me.zypj.essentials.listener.GodListener;
 import me.zypj.essentials.loader.EssentialsBootstrap;
 import org.bukkit.ChatColor;
@@ -54,7 +52,9 @@ public final class EssentialsPlugin extends JavaPlugin {
         commandFramework.registerHandlers(
                 new GamemodeCommand(this),
                 new GodCommand(this),
-                new OpenInvCommand(this)
+                new OpenInvCommand(this),
+                new EnderChestCommand(this),
+                new FixCommand(this)
         );
     }
 

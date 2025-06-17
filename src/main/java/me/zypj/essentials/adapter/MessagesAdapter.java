@@ -2,7 +2,7 @@ package me.zypj.essentials.adapter;
 
 import lombok.Getter;
 import me.zypj.essentials.EssentialsPlugin;
-import me.zypj.essentials.api.file.YAML;
+import me.zypj.essentials.common.file.YAML;
 import org.bukkit.configuration.InvalidConfigurationException;
 
 import java.io.IOException;

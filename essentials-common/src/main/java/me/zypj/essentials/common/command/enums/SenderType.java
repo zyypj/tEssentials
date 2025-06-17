@@ -1,4 +1,4 @@
-package me.zypj.essentials.api.command.enums;
+package me.zypj.essentials.common.command.enums;
 
 public enum SenderType {
     PLAYER,

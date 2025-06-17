@@ -1,9 +1,9 @@
 package me.zypj.essentials.command;
 
 import me.zypj.essentials.EssentialsPlugin;
-import me.zypj.essentials.api.command.annotation.Command;
-import me.zypj.essentials.api.command.annotation.TabComplete;
-import me.zypj.essentials.api.command.enums.SenderType;
+import me.zypj.essentials.common.command.annotation.Command;
+import me.zypj.essentials.common.command.annotation.TabComplete;
+import me.zypj.essentials.common.command.enums.SenderType;
 import me.zypj.essentials.service.GodService;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;

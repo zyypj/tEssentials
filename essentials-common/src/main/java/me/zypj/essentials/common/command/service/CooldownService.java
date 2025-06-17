@@ -1,4 +1,4 @@
-package me.zypj.essentials.api.command.service;
+package me.zypj.essentials.common.command.service;
 
 import org.bukkit.command.CommandSender;
 import java.util.Map;
